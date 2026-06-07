@@ -110,6 +110,58 @@ http://127.0.0.1:5173
 
 If port `5173` is busy, Vite may use another port such as `5174`.
 
+## Production Build
+
+```powershell
+npm.cmd run build
+npm.cmd run preview
+```
+
+The production output is generated in:
+
+```txt
+dist/
+```
+
+## Deploy To Vercel
+
+1. Push this repository to GitHub.
+2. Open Vercel and choose **Import Project**.
+3. Select the GitHub repository.
+4. Framework preset: **Vite**.
+5. Build command: `npm run build`.
+6. Output directory: `dist`.
+7. Deploy.
+
+SPA routing is handled by `vercel.json`, so direct refreshes such as `/simulation`, `/parking`, `/emergency`, and `/assistant` route back to `index.html`.
+
+## Deploy To Netlify
+
+1. Push this repository to GitHub.
+2. Open Netlify and choose **Import from Git**.
+3. Select the GitHub repository.
+4. Build command: `npm run build`.
+5. Publish directory: `dist`.
+6. Deploy.
+
+SPA routing is handled by `public/_redirects`:
+
+```txt
+/* /index.html 200
+```
+
+## Environment Variables
+
+Copy `.env.example` to `.env.local` for local overrides:
+
+```txt
+VITE_APP_NAME=KumbhFlow AI
+VITE_DEMO_MODE=true
+VITE_DATA_SOURCE=synthetic
+```
+
+All variables are optional. The app safely falls back to synthetic demo defaults.
+
 ## Demo Script
 
 1. Open Dashboard and point to Mobility Health Score, Crisis Mode, and AI Command Decision Engine.

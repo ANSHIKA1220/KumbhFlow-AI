@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { Activity, Bot, Car, Map, ParkingCircle, RadioTower, Siren } from "lucide-react";
+import { Activity, Bot, Map, ParkingCircle, RadioTower, Siren } from "lucide-react";
+import { env } from "../../config/env";
 
 const nav = [
   { to: "/", label: "Dashboard", icon: Activity },
@@ -16,7 +17,7 @@ export function Sidebar() {
       <div className="mb-8 flex items-center gap-3">
         <div className="grid h-11 w-11 place-items-center rounded-xl bg-signal-cyan font-black text-command-950">KF</div>
         <div>
-          <strong className="block text-lg text-white">KumbhFlow AI</strong>
+          <strong className="block text-lg text-white">{env.appName}</strong>
           <span className="text-xs text-slate-400">Smart-city mobility OS</span>
         </div>
       </div>
@@ -31,7 +32,7 @@ export function Sidebar() {
         })}
       </nav>
       <div className="mt-8 rounded-xl border border-signal-cyan/20 bg-signal-cyan/10 p-4 text-sm text-slate-300">
-        Synthetic digital twin mode is active. CCTV, GPS, parking sensors, and railway APIs can replace this data layer later.
+        {env.dataSource === "synthetic" ? "Synthetic digital twin mode is active." : "External data mode is active."} CCTV, GPS, parking sensors, and railway APIs can replace this data layer later.
       </div>
     </aside>
   );

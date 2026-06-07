@@ -1,4 +1,5 @@
 import { Menu, Sparkles } from "lucide-react";
+import { env } from "../../config/env";
 import { getActiveAlerts } from "../../services/alertService";
 import { useSimulationStore } from "../../store/simulationStore";
 import { useUiStore } from "../../store/uiStore";
@@ -19,7 +20,7 @@ export function Topbar() {
   return (
     <div className={`sticky top-0 z-30 flex min-h-16 flex-wrap items-center justify-between gap-3 border-b px-4 py-3 backdrop-blur ${crisisMode ? "border-signal-red/40 bg-red-950/90" : "border-white/10 bg-command-950/85"}`}>
       <button className="rounded-lg p-2 text-slate-300 hover:bg-white/10 lg:hidden" onClick={() => setSidebarOpen(true)}><Menu size={20} /></button>
-      <div className="hidden text-sm font-semibold text-slate-400 lg:block">From reactive traffic monitoring to predictive mobility intelligence.</div>
+      <div className="hidden text-sm font-semibold text-slate-400 lg:block">{env.appName}: From reactive traffic monitoring to predictive mobility intelligence.</div>
       <div className="flex flex-wrap items-center gap-2">
         <AIConfidenceBadge score={confidence} />
         <Badge tone="green">Prediction Engine: Active</Badge>
@@ -29,9 +30,9 @@ export function Topbar() {
         <button onClick={() => setCrisisMode(!crisisMode)} className={`rounded-full px-3 py-1 text-xs font-black transition ${crisisMode ? "bg-signal-red text-white" : "bg-white/10 text-slate-200 hover:bg-white/20"}`}>
           {crisisMode ? "Crisis Mode: HIGH ALERT" : "Normal Mode"}
         </button>
-        <button onClick={enableDemoMode} className="flex items-center gap-1 rounded-full bg-signal-cyan px-3 py-1 text-xs font-black text-command-950 transition hover:bg-white">
+        {env.demoMode ? <button onClick={enableDemoMode} className="flex items-center gap-1 rounded-full bg-signal-cyan px-3 py-1 text-xs font-black text-command-950 transition hover:bg-white">
           <Sparkles size={13} /> Demo Mode
-        </button>
+        </button> : null}
       </div>
     </div>
   );

@@ -3,12 +3,13 @@ import { useSimulationStore } from "../store/simulationStore";
 
 export function useSimulation() {
   const store = useSimulationStore();
+  const { running, speed, scenario, advance } = store;
 
   useEffect(() => {
-    if (!store.running) return;
-    const id = window.setInterval(() => store.advance(), Math.max(700, 3500 / store.speed));
+    if (!running) return;
+    const id = window.setInterval(() => advance(), Math.max(700, 3500 / speed));
     return () => window.clearInterval(id);
-  }, [store.running, store.speed, store.scenario]);
+  }, [running, speed, scenario, advance]);
 
   return store;
 }
