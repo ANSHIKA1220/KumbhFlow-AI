@@ -118,26 +118,6 @@ KumbhFlow AI provides:
 
 ![Dashboard](docs/images/dashboard.png)
 
-### Simulation
-
-![Simulation](docs/images/simulation.png)
-
-### Route Planner
-
-![Route Planner](docs/images/route-planner.png)
-
-### Parking Intelligence
-
-![Parking Intelligence](docs/images/parking.png)
-
-### Emergency Corridor Generator
-
-![Emergency](docs/images/emergency.png)
-
-### Multilingual Mobility Copilot
-
-![Assistant](docs/images/assistant.png)
-
 ## AI & Prediction Logic
 
 The current prototype uses deterministic AI-inspired logic and rule-based simulation to demonstrate how the system would behave with live data. It does not claim to use a trained machine learning model in the current frontend-only version.
@@ -290,13 +270,6 @@ npm install
 npm run dev
 ```
 
-If PowerShell blocks `npm.ps1`, use:
-
-```powershell
-npm.cmd install
-npm.cmd run dev
-```
-
 ## Production Build
 
 ```bash
@@ -312,38 +285,7 @@ dist/
 
 ## Deployment
 
-## Deploy to Vercel
-
-1. Push the repository to GitHub.
-2. Import the project in Vercel.
-3. Select framework preset: Vite.
-4. Build command: `npm run build`.
-5. Output directory: `dist`.
-6. Deploy.
-
-SPA routing is handled by `vercel.json`.
-
-## Deploy to Netlify
-
-1. Push the repository to GitHub.
-2. Import project in Netlify.
-3. Build command: `npm run build`.
-4. Publish directory: `dist`.
-5. Ensure SPA redirect exists.
-
-SPA routing is handled by `public/_redirects`.
-
-## Environment Variables
-
-`.env.example`:
-
-```txt
-VITE_APP_NAME=KumbhFlow AI
-VITE_DEMO_MODE=true
-VITE_DATA_SOURCE=synthetic
-```
-
-No secret keys are required for the current frontend-only prototype.
+## Deployed to Vercel: https://kumbh-flow-ai.vercel.app/
 
 ## AI-Assisted Development Workflow
 
@@ -380,8 +322,10 @@ It demonstrates how authorities can move from reactive traffic monitoring to pre
 
 ## Team
 
-Built for: AI-Assisted Product Build Challenge
+Built for: Mahakumbh Innovation Hackathon 2028 x Expert Hire x VIT Bhopal
 
 Track: Transportation & Mobility Management
 
 Project: KumbhFlow AI
+
+Owner: Anshika Shrivastava
